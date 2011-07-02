@@ -5,14 +5,13 @@ This module contains the tool of cmrs.academic
 import os
 from setuptools import setup, find_packages
 
-
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 version = open(os.path.join("cmrs", "academic", "version.txt")).read().strip()
 
 long_description = (
-    open(os.path.join("cmrs", "academic", "README.txt")).read().strip()
+    open(os.path.join("cmrs", "academic", "README.txt")).read().strip())
 
 tests_require = ['zope.testing']
 
