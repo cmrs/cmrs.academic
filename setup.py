@@ -12,7 +12,7 @@ def read(*rnames):
 version = open(os.path.join("cmrs", "academic", "version.txt")).read().strip()
 
 long_description = (
-    read('cmrs', 'academic', 'README.txt'))
+    read(os.path.join("cmrs", "academic", "version.txt")))
 
 tests_require = ['zope.testing']
 
