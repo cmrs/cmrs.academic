@@ -20,4 +20,4 @@ class TestContentType(unittest.TestCase):
         self.portal.invokeFactory('AcademicFolder', 'af1')
         af1 = getattr(self.portal, 'af1')
         af1.invokeFactory('Academic', 'a1')
-        assert 'a1' in tf1.objectIds()
+        assert 'a1' in af1.objectIds()

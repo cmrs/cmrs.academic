@@ -17,7 +17,6 @@ class TestContentType(unittest.TestCase):
 
     def testAddType(self):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        import pdb;pdb.set_trace()
         self.portal.invokeFactory('AcademicFolder', 'af1')
         af1 = getattr(self.portal, 'af1')
         assert 'af1' in self.portal.objectIds()
