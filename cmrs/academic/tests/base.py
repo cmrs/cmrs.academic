@@ -14,7 +14,7 @@ class TestCase(PloneSandboxLayer):
         self.loadZCML(package=cmrs.academic)
 
         # Install product and call its initialize() function
-        z2.installProduct(app, 'oxford.academic')
+        z2.installProduct(app, 'cmrs.academic')
 
         # Note: you can skip this if my.product is not a Zope 2-style
         # product, i.e. it is not in the Products.* namespace and it
