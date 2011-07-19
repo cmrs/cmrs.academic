@@ -13,7 +13,6 @@ from Products.CMFCore import utils
 
 academicMessageFactory = MessageFactory('cmrs.academic')
 
-
 def initialize(context):
     """Initializer called when used as a Zope 2 product.
 
@@ -24,12 +23,8 @@ def initialize(context):
     with Zope and the CMF.
     """
 
-    # Retrieve the content types that have been registered with Archetypes
-    # This happens when the content type is imported and the registerType()
-    # call in the content type's module is invoked. Actually, this happens
-    # during ZCML processing, but we do it here again to be explicit. Of
-    # course, even if we import the module several times, it is only run
-    # once.
+    from content.academic import Academic
+    from content.academicfolder import AcademicFolder
 
     content_types, constructors, ftis = atapi.process_types(
         atapi.listTypes(config.PROJECTNAME),

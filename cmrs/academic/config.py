@@ -4,5 +4,6 @@
 PROJECTNAME = 'cmrs.academic'
 
 ADD_PERMISSIONS = {
-    # -*- extra stuff goes here -*-
+    'Academic': 'CmrsAcademic: Add Academic',
+    'AcademicFolder': 'CmrsAcademic: Add AcademicFolder',
 }
