@@ -2,6 +2,7 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 from Products.Archetypes.atapi import registerType
+from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.content.newsitem import ATNewsItem
 from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
@@ -11,7 +12,7 @@ from cmrs.academic.interfaces.academic import IAcademic
 
 from schemata import AcademicSchema
 
-class Academic(ATNewsItem):
+class Academic(ATCTContent):
     """An Academic"""
 
     security = ClassSecurityInfo()
@@ -26,5 +27,10 @@ class Academic(ATNewsItem):
     security.declarePublic('canSetConstrainTypes')
     def canSetConstrainTypes(self):
         return False
+
+    security.declarePublic('getAcademicName')
+    def getAcademicName(self):
+        name = self.getPersonalName() + ' ' + self.getFamilyName()
+        return name
 
 registerType(Academic, PROJECTNAME)

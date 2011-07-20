@@ -3,7 +3,10 @@ from plone.app.folder.folder import ATFolderSchema
 from Products.Archetypes.atapi import AnnotationStorage
 from Products.Archetypes.atapi import ImageField
 from Products.Archetypes.atapi import ImageWidget
+from Products.Archetypes.atapi import LinesField
+from Products.Archetypes.atapi import LinesWidget
 from Products.Archetypes.atapi import RichWidget
+from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import TextField
@@ -19,19 +22,42 @@ AcademicFolderSchema = ATFolderSchema.copy() + Schema((
 
 AcademicSchema = ATContentTypeSchema.copy() + Schema((
 
-    TextField('text',
-        required = False,
+    StringField('personalName',
+        required = True,
         searchable = True,
-        primary = True,
-        storage = AnnotationStorage(migrate=True),
-        validators = ('isTidyHtmlWithCleanup',),
-        default_output_type = 'text/x-html-safe',
-        widget = RichWidget(
-            description = '',
-            label = 'Testimonial Text',
-            rows = 25,
-            allow_file_upload = zconf.ATDocument.allow_document_upload)
-        ),
+        storage = AnnotationStorage(),
+        widget = StringWidget(
+            label='Personal Name',
+        )
+    ),
+
+    StringField('familyName',
+        required = True,
+        searchable = True,
+        storage = AnnotationStorage(),
+        widget = StringWidget(
+            label='Family Name',
+        )
+    ),
+
+    LinesField('postNominals',
+        required = False,
+        searchable = False,
+        storage = AnnotationStorage(),
+        widget = LinesWidget(
+            label='Post Nominals',
+            description = """Add each post nominal on a seperate line""",
+        )
+    ),
+
+    StringField('jobTitle',
+        required = True,
+        searchable = True,
+        storage = AnnotationStorage(),
+        widget = StringWidget(
+            label='Job Title',
+        )
+    ),
 
     ImageField(
         name='academicPortrait',
