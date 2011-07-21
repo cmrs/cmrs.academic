@@ -85,6 +85,23 @@ AcademicSchema = ATContentTypeSchema.copy() + Schema((
         ),
     ),
 
+    TextField('text',
+        required = False,
+        searchable = True,
+        primary = True,
+        storage = AnnotationStorage(migrate=True),
+        validators = ('isTidyHtmlWithCleanup',),
+        default_output_type = 'text/x-html-safe',
+        widget = RichWidget(
+            description = '',
+            label = 'Academic Bio',
+            rows = 25,
+            allow_file_upload = zconf.ATDocument.allow_document_upload)
+        ),
+
 ))
+
+AcademicSchema['title'].widget.visible = False
+AcademicSchema['description'].widget.visible = False
 
 finalizeATCTSchema(AcademicSchema)

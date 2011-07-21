@@ -33,4 +33,14 @@ class Academic(ATCTContent):
         name = self.getPersonalName() + ' ' + self.getFamilyName()
         return name
 
+    security.declarePublic('Title')
+    def Title(self):
+        name = self.getPersonalName() + ' ' + self.getFamilyName()
+        post_nominals = self.getPostNominals()
+        for post_nominal in post_nominals:
+            name = name + ' ' + post_nominal + ','
+        if name[-1:] == ',':
+            name = name[:-1]
+        return name
+
 registerType(Academic, PROJECTNAME)

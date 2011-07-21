@@ -47,6 +47,14 @@ class TestSchema(unittest.TestCase):
         a1.setPostNominals(['MA', 'PhD'])
         assert a1.getPostNominals() == ('MA', 'PhD'), a1.getPostNominals()
 
+    def testTitle(self):
+        self.af1.invokeFactory('Academic', 'a1')
+        a1 = getattr(self.af1, 'a1')
+        a1.setPersonalName('John')
+        a1.setFamilyName('Smith')
+        a1.setPostNominals(['MA', 'PhD'])
+        assert a1.Title() == 'John Smith MA, PhD', a1.Title()
+
     def testJobTitle(self):
         self.af1.invokeFactory('Academic', 'a1')
         a1 = getattr(self.af1, 'a1')
