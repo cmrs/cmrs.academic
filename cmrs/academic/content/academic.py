@@ -35,7 +35,12 @@ class Academic(ATCTContent):
 
     security.declarePublic('Title')
     def Title(self):
-        name = self.getPersonalName() + ' ' + self.getFamilyName()
+        pre_nominal = self.getPreNominal()
+        if pre_nominal:
+            name = pre_nominal + ' '
+        else:
+            name = ''
+        name = name + self.getPersonalName() + ' ' + self.getFamilyName()
         post_nominals = self.getPostNominals()
         for post_nominal in post_nominals:
             name = name + ' ' + post_nominal + ','

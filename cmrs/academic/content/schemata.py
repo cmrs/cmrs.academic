@@ -6,6 +6,7 @@ from Products.Archetypes.atapi import ImageWidget
 from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import LinesWidget
 from Products.Archetypes.atapi import RichWidget
+from Products.Archetypes.atapi import SelectionWidget
 from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import Schema
@@ -16,11 +17,23 @@ from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.validation import V_REQUIRED
 
+from cmrs.academic.config import PRE_NOMINAL
+
 AcademicFolderSchema = ATFolderSchema.copy() + Schema((
 
 ))
 
 AcademicSchema = ATContentTypeSchema.copy() + Schema((
+
+    StringField('preNominal',
+        required = True,
+        searchable = True,
+        vocabulary = PRE_NOMINAL,
+        storage = AnnotationStorage(),
+        widget = SelectionWidget(
+            label='Personal Name',
+        )
+    ),
 
     StringField('personalName',
         required = True,

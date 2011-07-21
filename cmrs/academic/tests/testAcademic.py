@@ -50,10 +50,11 @@ class TestSchema(unittest.TestCase):
     def testTitle(self):
         self.af1.invokeFactory('Academic', 'a1')
         a1 = getattr(self.af1, 'a1')
+        a1.setPreNominal('Dr')
         a1.setPersonalName('John')
         a1.setFamilyName('Smith')
         a1.setPostNominals(['MA', 'PhD'])
-        assert a1.Title() == 'John Smith MA, PhD', a1.Title()
+        assert a1.Title() == 'Dr John Smith MA, PhD', a1.Title()
 
     def testJobTitle(self):
         self.af1.invokeFactory('Academic', 'a1')
