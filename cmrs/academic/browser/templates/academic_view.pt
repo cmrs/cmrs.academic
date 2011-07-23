@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="keble.theme">
+<body>
+
+<metal:override fill-slot="column_two_slot">
+</metal:override>
+
+    <metal:main fill-slot="main">
+        <tal:main-macro metal:define-macro="main"
+            tal:define="academics view/getAcademics">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <!--
+        <h1 class="documentFirstHeading">
+            <span metal:use-macro="python:context.widget('title', mode='view')" />
+        </h1>
+        -->
+
+        <h1 class="documentFirstHeading">
+          Academics
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div class="documentDescription">
+            <span metal:use-macro="python:context.widget('description', mode='view')" />
+        </div>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div>
+            <p>Here you will find an alphabetical listing of all Professorial and Tutorial Fellows, Research Fellows and Tutors, and Stipendiary Lecturers.</p>
+            <p>It is hoped shortly to provide a listing by subject area here as well, but in the mean time if you are interested in finding out about the research and teaching strengths in particular areas you should go to the <em>your subject</em> pages.</p>
+        </div>
+
+        <div id="academics-list">
+            <div class="academics-list-column"> 
+                <div class="academics-list-item" tal:repeat="academic python:academics[0]">
+                    <a tal:attributes="href academic/getURL" tal:content="academic/Title"></a>
+                </div>
+            </div>
+
+            <div class="academics-list-column"> 
+                <div class="academics-list-item" tal:repeat="academic python:academics[1]">
+                    <a tal:attributes="href academic/getURL" tal:content="academic/Title"></a>
+                </div>
+            </div>
+
+            <div class="academics-list-column"> 
+                <div class="academics-list-item" tal:repeat="academic python:academics[2]">
+                    <a tal:attributes="href academic/getURL" tal:content="academic/Title"></a>
+                </div>
+            </div>
+
+            <div class="visualClear"><!-- --></div>
+        </div>
+		
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        <div class="visualClear"><!-- --></div>
+        </tal:main-macro>
+    </metal:main>
+</body>
+</html>
