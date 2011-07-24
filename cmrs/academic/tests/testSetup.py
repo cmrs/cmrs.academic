@@ -20,6 +20,10 @@ class TestInstallation(unittest.TestCase):
         assert 'AcademicFolder' in portal_types.objectIds(), portal_types.objectIds()
         assert 'Academic' in portal_types.objectIds(), portal_types.objectIds()
 
+    def testCatalogIndexesAdded(self):
+        catalog = self.portal.portal_catalog
+        assert 'family_name' in catalog.indexes()
+
 class TestReinstall(unittest.TestCase):
     """Ensure product can be reinstalled safely"""
     layer = CMRS_ACADEMIC_INTEGRATION_TESTING
