@@ -13,4 +13,12 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      name="academic_list"
+      for="cmrs.academic.interfaces.academicfolder.IAcademicFolder"
+      class=".academicfolder.AcademicFolderView"
+      template="templates/academic_list.pt"
+      permission="zope2.View"
+      />
+
 </configure>
