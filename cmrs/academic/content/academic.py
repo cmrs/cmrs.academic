@@ -52,4 +52,13 @@ class Academic(ATCTContent):
     def Description(self):
         return self.getJobTitle()
 
+    def tag(self, **kwargs):
+        """Generate image tag using the api of the ImageField
+        """
+        if 'title' not in kwargs:
+            kwargs['title'] = self.Title()
+        if 'scale' not in kwargs:
+            kwargs['scale'] = 'mini'
+        return self.getField('academicPortrait').tag(self, **kwargs)
+
 registerType(Academic, PROJECTNAME)
