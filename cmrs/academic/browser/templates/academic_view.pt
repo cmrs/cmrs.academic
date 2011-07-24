@@ -21,7 +21,8 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <div style="float: left; margin-right: 1em;">
+        <div tal:condition="context/getAcademicPortrait"
+             style="float: left; margin-right: 1em;">
             <img tal:replace="structure context/tag" />
         </div>
         <div tal:content="structure context/getText" />
