@@ -23,7 +23,18 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:repeat="academic academics">
-            <div tal:content="academic/Title" />
+            <div tal:condition="academic/getAcademicPortrait"
+                 style="float: left; margin-right: 1em;">
+                <img tal:replace="structure python:academic.tag(scale='icon')" />
+            </div>
+            <div tal:condition="not:academic/getText"
+                 tal:content="academic/Title" />
+            <div tal:condition="academic/getText">
+                <a tal:attributes="href academic/absolute_url"
+                   tal:content="academic/Title" />
+            </div>
+            <div tal:content="academic/getJobTitle" />
+            <div class="visualClear">&nbsp;</div>
         </div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
