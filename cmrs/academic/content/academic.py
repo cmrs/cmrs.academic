@@ -48,4 +48,8 @@ class Academic(ATCTContent):
             name = name[:-1]
         return name
 
+    security.declarePublic('Description')
+    def Description(self):
+        return self.getJobTitle()
+
 registerType(Academic, PROJECTNAME)
