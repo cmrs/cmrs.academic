@@ -27,13 +27,16 @@
                  style="float: left; margin-right: 1em;">
                 <img tal:replace="structure python:academic.tag(scale='icon')" />
             </div>
-            <div tal:condition="not:academic/getText"
+            <div class="academic-list"
+                 tal:condition="not:academic/getText"
                  tal:content="academic/Title" />
-            <div tal:condition="academic/getText">
+            <div class="academic-list"
+                 tal:condition="academic/getText">
                 <a tal:attributes="href academic/absolute_url"
                    tal:content="academic/Title" />
             </div>
-            <div tal:content="academic/getJobTitle" />
+            <div class="academic-list"
+                 tal:content="academic/getJobTitle" />
             <div class="visualClear">&nbsp;</div>
         </div>
 
