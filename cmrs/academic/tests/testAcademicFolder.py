@@ -38,7 +38,7 @@ class TestView(unittest.TestCase):
         self.af1 = getattr(self.portal, 'af1')
 
     def testGetAcademicsReturnsNone(self):
-        """ looking up and updating the manager should list our viewlet
+        """Should return empty list if no academics
         """
         af1 = self.af1
         view = getMultiAdapter((aq_inner(af1), self.portal.REQUEST), name='academic_list')
@@ -46,7 +46,7 @@ class TestView(unittest.TestCase):
         assert view.getAcademics() == []
 
     def testGetAcademicsReturnNone(self):
-        """ looking up and updating the manager should list our viewlet
+        """Should return list of one item
         """
         af1 = self.af1
         af1.invokeFactory('Academic', 'a1')
