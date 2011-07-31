@@ -1,3 +1,4 @@
+import transaction
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
@@ -27,6 +28,23 @@ class Academic(ATCTContent):
     security.declarePublic('canSetConstrainTypes')
     def canSetConstrainTypes(self):
         return False
+
+    security.declarePrivate('_renameAfterCreation')
+    def _renameAfterCreation(self, check_auto_id=False):
+        plone_tool = getToolByName(self, 'plone_utils', None)
+        # Can't rename without a subtransaction commit when using
+        # portal_factory!
+        transaction.savepoint(optimistic = True)
+        new_id = self.getAcademicName()
+        new_id = plone_tool.normalizeString(new_id)
+        if new_id in self.aq_parent.objectIds():
+            new_id = self.getFamilyName()
+            plone_tool.normalizeString(new_id)
+        self.setId(new_id)
+
+    security.declarePrivate('at_post_create_script')
+    def at_post_edit_script(self):
+        self._renameAfterCreation()
 
     security.declarePublic('getAcademicName')
     def getAcademicName(self):
