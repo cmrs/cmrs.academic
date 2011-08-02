@@ -24,6 +24,10 @@ class TestInstallation(unittest.TestCase):
         catalog = self.portal.portal_catalog
         assert 'family_name' in catalog.indexes()
 
+    def testPortalFactorySetup(self):
+        assert 'Academic' in self.portal.portal_factory.getFactoryTypes()
+        assert 'AcademicFolder' in self.portal.portal_factory.getFactoryTypes()
+
 class TestReinstall(unittest.TestCase):
     """Ensure product can be reinstalled safely"""
     layer = CMRS_ACADEMIC_INTEGRATION_TESTING
