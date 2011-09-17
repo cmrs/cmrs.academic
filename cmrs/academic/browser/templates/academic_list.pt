@@ -25,7 +25,7 @@
         <div tal:repeat="academic academics">
             <div tal:condition="academic/getAcademicPortrait"
                  style="float: left; margin-right: 1em;">
-                <img tal:replace="structure python:academic.tag(scale='icon')" />
+                <img tal:replace="structure python:academic.tag(scale='tile')" />
             </div>
             <div class="academic-list"
                  tal:condition="not:academic/getText"
