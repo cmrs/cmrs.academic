@@ -31,7 +31,7 @@ AcademicSchema = ATContentTypeSchema.copy() + Schema((
         vocabulary = PRE_NOMINAL,
         storage = AnnotationStorage(),
         widget = SelectionWidget(
-            label='Personal Name',
+            label='Title',
         )
     ),
 
