@@ -21,6 +21,18 @@ from cmrs.academic.config import PRE_NOMINAL
 
 AcademicFolderSchema = ATFolderSchema.copy() + Schema((
 
+    TextField('text',
+        required = False,
+        searchable = True,
+        primary = True,
+        storage = AnnotationStorage(migrate=True),
+        validators = ('isTidyHtmlWithCleanup',),
+        default_output_type = 'text/x-html-safe',
+        widget = RichWidget(
+            label = 'Introduction',
+            rows = 25,)
+        ),
+
 ))
 
 AcademicSchema = ATContentTypeSchema.copy() + Schema((
