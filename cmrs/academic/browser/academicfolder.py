@@ -13,6 +13,6 @@ class AcademicFolderView(BrowserView):
         """Return the academics as objects, sorted by family name
         """
         academics = self.context.getFolderContents(contentFilter={'portal_type':'Academic',
-                                                                  'sort_on':'family_name'},
+                                                                  'sort_on':'getObjPositionInParent'},
                                                    full_objects=True)
         return academics
