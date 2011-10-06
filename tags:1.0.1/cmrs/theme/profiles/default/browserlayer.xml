@@ -1,4 +1,0 @@
-<layers>
-    <layer name="cmrs.theme"
-        interface="cmrs.theme.browser.interfaces.ICmrsTheme" />
-</layers>

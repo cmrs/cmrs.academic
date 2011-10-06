@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<object name="TestimonialFolder">
- <property name="allowed_content_types" purge="False">
-  <element value="SectionImageFolder"/>
- </property>
-</object>

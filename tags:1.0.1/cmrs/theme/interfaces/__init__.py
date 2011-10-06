@@ -1,1 +1,0 @@
-from portlet import ISectionImagePortlet
