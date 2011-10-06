@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cmrs.theme.various"
+               version="20110712-01"
+               handler="cmrs.theme.setuphandlers.setupVarious"
+               title="Cmrs Theme Package: miscellaneous import steps">
+    <dependency step="skins" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

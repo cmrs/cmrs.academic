@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+    <dependency>profile-cmrs.academic:default</dependency>
+    <dependency>profile-cmrs.course:default</dependency>
+    <dependency>profile-keble.layout:default</dependency>
+    <dependency>profile-oxford.homepage:default</dependency>
+    <dependency>profile-oxford.testimonial:default</dependency>
+  </dependencies>
+</metadata>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="CMRS">
+ <object name="cmrs_theme"
+    meta_type="Filesystem Directory View"
+    directory="cmrs.theme:skins/cmrs_theme"/>
+ <skin-path name="CMRS" based-on="Keble Default">
+  <layer name="cmrs_theme"
+     insert-after="custom"/>
+ </skin-path>
+</object>

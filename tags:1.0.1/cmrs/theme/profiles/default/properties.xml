@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<site>
+ <property name="title">Centre for Medieval &amp; Renaissance Studies, Oxford</property>
+ <property name="description"></property>
+ <property name="email_from_address" type="string">enquiries@cmrs.org.uk</property>
+ <property name="email_from_name" type="string">CMRS</property>
+ <property name="validate_email" type="boolean">True</property>
+ <property name="email_charset" type="string">utf-8</property>
+</site>

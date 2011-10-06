@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<object>
+ <order manager="plone.portalheader" skinname="*">
+  <viewlet name="plone.skip_links"/>
+  <viewlet name="plone.personal_bar"/>
+  <viewlet name="plone.logo"/>
+  <viewlet name="cmrs.theme.title"/>
+  <viewlet name="keble.layout.searchbox"/>
+  <viewlet name="cmrs.theme.global_sections"/>
+  <viewlet name="keble.layout.sectionbanner"/>
+ </order>
+ <hidden manager="plone.portalheader" skinname="*">
+  <viewlet name="keble.layout.oxfordemblem"/>
+  <viewlet name="plone.searchbox"/>
+  <viewlet name="plone.global_sections"/>
+  <viewlet name="keble.layout.global_sections"/>
+ </hidden>
+ <hidden manager="plone.abovecontent" skinname="*">
+  <viewlet name="plone.path_bar"/>
+ </hidden>
+ <hidden manager="plone.portalfooter" skinname="*">
+  <viewlet name="plone.analytics"/>
+  <viewlet name="plone.site_actions"/>
+  <viewlet name="plone.colophon"/>
+  <viewlet name="plone.footer"/>
+  <viewlet name="keble.layout.footer"/>
+ </hidden>
+</object>
