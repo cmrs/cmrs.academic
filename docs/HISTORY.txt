@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.1 2011/10/06
+----------------
+
+- Sort by folder position rather than family name
+
 1.0.0 2011/09/29
 ----------------
 
