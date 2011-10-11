@@ -38,8 +38,8 @@ AcademicFolderSchema = ATFolderSchema.copy() + Schema((
 AcademicSchema = ATContentTypeSchema.copy() + Schema((
 
     StringField('preNominal',
-        required = True,
-        searchable = True,
+        required = False,
+        searchable = False,
         vocabulary = PRE_NOMINAL,
         storage = AnnotationStorage(),
         widget = SelectionWidget(
