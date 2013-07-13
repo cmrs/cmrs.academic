@@ -1,8 +1,10 @@
 Changelog
 =========
 
-1.1.0 Unreleased
+1.0.3 2013/07/13
 ----------------
+
+- Allow academic folder in folders
 
 1.0.2 2011/10/11
 ----------------
